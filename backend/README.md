@@ -25,3 +25,6 @@ npm install express-validator
 
 ## install command bcrypt.js for hashing password  
 npm i bcryptjs
+
+## install command JWT (JSON Web Tokens) for Base64Url-encoded Data
+npm i jsonwebtoken
