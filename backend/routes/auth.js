@@ -47,7 +47,7 @@ try{
    const authtowken = jwt.sign(data, JWT_SECRET)
    //console.log(authtowken)
 
-   res.json(authtowken)
+   res.json({authtowken})
 }
 //catch error
 catch (error) {
@@ -56,5 +56,51 @@ catch (error) {
 }
 
 })
+
+
+//Authenticate User Using : Post "/api/auth/login". No login required
+
+router.post('/login', [
+   body('email', 'Enter a valid Email').isEmail(),
+   body('password', 'Password connot be blank').exists(),
+], async (req, res) => {
+
+   // if there are errors, return Bad request and the errors
+   const errors = validationResult(req);
+   if(!errors.isEmpty()){
+      return res.status(400).json({ error: errors.array()})
+   }
+
+   const{email, password} = req.body;
+   try {
+      let user = await User.findOne({email});
+      if(!user){
+         return res.status(400).json({error: "Please try to login with correct credentials"})
+      }
+
+      const passwordcompare = await bcrypt.compare(password, user.password)
+      if(!passwordcompare){
+         return res.status(400).json({error: "Please try to login with correct credentials"})
+      }
+
+      const data = {
+         user:{
+            id:user.id
+         }
+      }
+
+      const authtoken = jwt.sign(data, JWT_SECRET)
+      res.json({authtoken})
+   }
+   
+   //catch error
+   catch (error) {
+      console.error(error.message);
+      res.status(500).send("Inernal sever error");
+   }
+
+
+})
+
 
 module.exports = router
