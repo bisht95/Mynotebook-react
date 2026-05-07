@@ -4,6 +4,8 @@ const router = express.Router();
 const { body, validationResult } = require('express-validator')
 const bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
+var fetchuser = require('../middleware/fetchuser')
+
 
 const JWT_SECRET = 'JWTmynotebook$sign';
 
@@ -21,7 +23,7 @@ router.post('/createuser',[
       return res.status(400).json({ error: errors.array()})
    }
 
-// check whether the user with this email already
+// ROUTE 1 : Check whether the user with this email already
 
 try{
    let user = await User.findOne({email:req.body.email});
@@ -58,7 +60,7 @@ catch (error) {
 })
 
 
-//Authenticate User Using : Post "/api/auth/login". No login required
+//ROUTE 2 : Authenticate User Using : Post "/api/auth/login". No login required
 
 router.post('/login', [
    body('email', 'Enter a valid Email').isEmail(),
@@ -101,6 +103,26 @@ router.post('/login', [
 
 
 })
+
+
+//ROUTE 3 : Get loggedin User Using : Post "/api/auth/getuser".  login required
+
+router.post('/getuser', fetchuser, async (req, res) => {
+
+   try {
+      userId = req.user.id;
+      const user = await User.findById(userId).select("-password")
+      res.send(user)
+   } 
+   
+   catch (error) {
+      console.error(error.message);
+      res.status(500).send("Inernal sever error");
+   }
+
+});
+
+
 
 
 module.exports = router
