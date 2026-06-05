@@ -40,7 +40,7 @@ npm i jsonwebtoken
 
 ## 2. login Api end points with body json (http://localhost:5000/api/auth/login)
 {
-  "email" : "gaurav@gmail.com",
+  "email" : "saurav@gmail.com",
   "password" : "bisht@95"
 }
 
