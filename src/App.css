@@ -1,8 +1,16 @@
-body{background: #fbfbfb;}
+body{background: #fbfbfb; font-size: 15px; font-family: 'Poppins', sans-serif; font-weight: 400;}
+
+.mybtn {background-color: #a71b5d; color: #fff; text-decoration: none; font-size: 16px; padding: 9px 28px; display: inline-block; border-radius: 6px; font-weight: 500; letter-spacing: .5px; transition: all .8s ease;}
+.mybtn:hover{background-color: #156060; color: #fff;}
+
 .mynavbar .navbar {padding: 6px 0;}
 .mynavbar .navbar .nav-item{margin-right: 20px;}
-.mynavbar .navbar .nav-link {font-weight: 600; color: #333; font-size: 16px;}
-.mynavbar .navbar .nav-link.active, .mynavbar .navbar .nav-link:hover{color: #fe5f03;}
+.mynavbar .navbar .nav-link {font-size: 16px; padding: 10px 20px; text-transform: capitalize; font-weight: 600;}
+.mynavbar .navbar .nav-link.active, .mynavbar .navbar .nav-link:hover{color: #a71b5d;}
+
+.navlogin .order-now-btn {margin-right: 10px;}
+.navlogin .loginbtn {color: #00615e; text-decoration: none; font-size: 16px; font-weight: 600;}
+.navlogin .loginbtn:hover{color:#a71b5d}
 
 
 
