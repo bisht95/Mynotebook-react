@@ -7,7 +7,7 @@ import './App.css'
 import Home from './component/Home';
 import About from './component/About';
 import Navbar from './component/Navbar';
-
+import NoteState from './context/notes/NoteState';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,10 +15,13 @@ function App() {
   return (
     <>
       <Navbar />
-      <Routes>
-       <Route path='/' element={<Home />} /> 
-       <Route path='about' element={<About />} />
-      </Routes>
+
+       <NoteState>
+          <Routes>
+            <Route path='/' element={<Home />} /> 
+            <Route path='about' element={<About />} />
+          </Routes>
+        </NoteState>
 
     </>
   )
