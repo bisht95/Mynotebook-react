@@ -12,6 +12,12 @@ body{background: #fbfbfb; font-size: 15px; font-family: 'Poppins', sans-serif; f
 .navlogin .loginbtn {color: #00615e; text-decoration: none; font-size: 16px; font-weight: 600;}
 .navlogin .loginbtn:hover{color:#a71b5d}
 
+.contextdata {display: flex; gap: 2%; flex-wrap: wrap; row-gap: 25px;}
+.contextdata .card {width: 32%;}
+.contextdata .notedate {text-align: right; font-size: 12px; font-weight: 500; position: relative;}
+.contextdata .notedate i {position: relative; top: -2px;}
+.cardbtn .btn {font-size: 12px; letter-spacing: .3px; padding: 5px 8px;}
+
 
 
 @media (max-width: 991px) {
@@ -21,5 +27,4 @@ body{background: #fbfbfb; font-size: 15px; font-family: 'Poppins', sans-serif; f
     .mynavbar .navbar .navbar-nav .nav-link {padding: 12px 12px; border-bottom: 1px solid #022e63;  color: #fff;}
     .mynavbar .navbar .navbar-nav .nav-item:last-child .nav-link {border-bottom: none;}
     .mynavbar .navbar-toggler span {background-image: none; background-color: #fff; width: 22px; height: 2px; margin: 6px 0; display: block;}
-
 }
