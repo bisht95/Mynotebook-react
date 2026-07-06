@@ -1,8 +1,10 @@
 import React from 'react'
 
-const Noteitem = () => {
+const Noteitem = (props) => {
+    const {note} = props;
+
     return (
-        <div>
+        <>
             <div className="card" >
                 <div className="card-body">
                     <div className='notedate'>
@@ -18,7 +20,7 @@ const Noteitem = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 
