@@ -5,15 +5,13 @@ import AddNote from './AddNote';
 
 const Notes = () => {
     const context = useContext(noteContext);
-    const { notes, setNotes } = context;
+    const { notes, addNote } = context;
    
 
     return (
         <div>
             <div className='container'>
                 <AddNote />
-
-
                 <div className='contextdata mt-5'>
                     {notes.map((note) => {
                         return <Noteitem key={note._id} note={note}/>
